@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "avinash-tharwani",
     "public": "dist/portfolio",
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     "rewrites": [
