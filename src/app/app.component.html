@@ -1,34 +1,15 @@
-<!-- 
-    =======================================================================
-    Name    :   Simple Testimonial
-    Author  :   Surjith S M
-    Twitter :   @surjithctly
-
-    Get more components here 👉 https://web3templates.com/components
-	Tailwind Play Link: https://play.tailwindcss.com/9172qJmyVi
-
-    Copyright © 2022
-    =======================================================================
- -->
-
- <div class="bg-white h-screen flex items-center justify-center">
-	<div class=" text-center">
-		<div class="text-7xl text-blue-300 leading-5">”</div>
-		<div class="font-medium max-w-xl text-xl">
-      Hello, The site is in development mode. 
-		</div>
-		<div class="mt-5">
-			<span class="font-bold">Avinash Kumar</span><span class="text-gray-500 font-medium"> — Software Engineer</span>
-		</div>
+<div class="mx-5 container flex flex-row">
+	<div class="h-full shadow-md bg-white px-1 w-40">
+		<ul class="relative" *ngFor="let page of pages | async">
+			<li class="relative">
+				<a class="flex items-center text-sm py-4 px-6 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-gray-900 hover:bg-gray-100 transition duration-300 ease-in-out"
+					[routerLink]="'page/'+page['url']" data-mdb-ripple="true" data-mdb-ripple-color="dark">
+					{{page["name"]}}
+				</a>
+			</li>
+		</ul>
 	</div>
-</div>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-<style>
-	body {
-		font-family: 'Heebo', sans-serif;
-	}
-</style>
+	<div class="w-60 mx-4">
+		<router-outlet></router-outlet>
+	</div>
+	<div>
