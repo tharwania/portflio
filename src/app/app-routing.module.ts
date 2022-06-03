@@ -4,6 +4,7 @@ import { PageComponent } from './src/app/components/page/page.component';
 
 const routes: Routes = [
   { path: 'page/:id', component: PageComponent },
+  { path: '', redirectTo: '/page/home', pathMatch: 'full' }
 ];
 
 @NgModule({
