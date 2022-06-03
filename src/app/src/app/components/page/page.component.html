@@ -1,1 +1,3 @@
-<p>Hey, You are at Avinash's. Its work in progress. Please comeback to watch awesomeness unfold.</p>
+<div *ngIf="page | async as pageData">
+    {{pageData?.content}}
+</div>
