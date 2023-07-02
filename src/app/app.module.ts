@@ -7,7 +7,6 @@ import { provideFirebaseApp, getApp, initializeApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { environment } from 'src/environments/environment';
 import { PageComponent } from './src/app/components/page/page.component';
-import { LoginComponent } from './src/app/components/login/login.component';
 import { getAuth, provideAuth } from '@angular/fire/auth';
 import { FIREBASE_OPTIONS } from '@angular/fire/compat';
 
@@ -15,7 +14,6 @@ import { FIREBASE_OPTIONS } from '@angular/fire/compat';
   declarations: [
     AppComponent,
     PageComponent,
-    LoginComponent
   ],
   imports: [
     BrowserModule,
