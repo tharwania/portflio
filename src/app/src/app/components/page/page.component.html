@@ -1,16 +1,31 @@
-<div class="mt-[58px] py-5"  *ngIf="page | async as pageData; else pageNotFound">
+<div class="mt-[58px] py-5" *ngIf="page | async as pageData; else pageNotFound">
     <div class="contents">
+
         <section
             class="mx-auto min-[576px]:max-w-[540px] min-[768px]:max-w-[720px] min-[992px]:max-w-[960px] min-[1200px]:max-w-[1140px] min-[1400px]:max-w-[1320px] ">
             <div class="grid grid-cols-12">
+
+
+
                 <div class="col-span-12 mb-5 px-6 lg:col-span-8">
+                    <button *ngIf="isLoggedIn && !editMode" (click)="editMode = !editMode" type="button"
+                        data-te-ripple-init data-te-ripple-color="light"
+                        class="inline-block rounded px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary transition duration-150 ease-in-out hover:bg-neutral-100 hover:text-primary-600 focus:text-primary-600 focus:outline-none focus:ring-0 active:text-primary-700">
+                        Edit
+                    </button>
+                    <button *ngIf="editMode" (click)="addOrUpdatePage()" type="button" data-te-ripple-init
+                        data-te-ripple-color="light"
+                        class="inline-block rounded px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary transition duration-150 ease-in-out hover:bg-neutral-100 hover:text-primary-600 focus:text-primary-600 focus:outline-none focus:ring-0 active:text-primary-700">
+                        Update
+                    </button>
                     <h1 class="mb-2 mt-0 text-3xl font-semibold leading-tight">
                         {{ pageData.name }}
                     </h1>
                     <hr class="my-7 h-0.5 border-t-0 bg-neutral-100 opacity-100 dark:opacity-50">
-                    <p class="mb-3">
-                        {{ pageData.content }}
-                    </p>
+                    <ckeditor *ngIf="editMode" [editor]="Editor" [data]="pageData.content" (change)="onChange($event)">
+                    </ckeditor>
+                    <div *ngIf="!editMode" [innerHTML]="pageData.content " class="mb-3">
+                    </div>
                 </div>
             </div>
         </section>

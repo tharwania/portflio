@@ -11,6 +11,8 @@ import { getAuth, provideAuth } from '@angular/fire/auth';
 import { FIREBASE_OPTIONS } from '@angular/fire/compat';
 import { HomeComponent } from './src/app/components/home/home.component';
 
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,11 +22,12 @@ import { HomeComponent } from './src/app/components/home/home.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    CKEditorModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
     provideAuth(() => getAuth()),
   ],
-  providers: [ { provide: FIREBASE_OPTIONS, useValue: environment.firebase }],
+  providers: [{ provide: FIREBASE_OPTIONS, useValue: environment.firebase }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

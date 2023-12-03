@@ -1,0 +1,16 @@
+{
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "html": {
+        "format": {
+            "wrapLineLength": 0,
+            "wrapAttributes": "auto",
+            "unformatted": "b,em,strong,i,span",
+            "contentUnformatted": ""
+        },
+        "editor.defaultFormatter": "vscode.html-language-features",
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    }
+}
