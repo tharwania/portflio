@@ -13,7 +13,6 @@ export class PageComponent implements OnInit {
   page: Observable<Page> | null = null;
   constructor(private pageService: PageDataService, private route: ActivatedRoute) {
     this.route.paramMap.subscribe(paramMap => {
-      debugger;
       const id = paramMap.get('id');
       if (id) {
         this.page = pageService.getPage(id)

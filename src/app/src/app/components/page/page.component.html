@@ -1,3 +1,19 @@
-<div *ngIf="page | async as pageData">
-    {{pageData?.content}}
+<div class="mt-[58px] py-5"  *ngIf="page | async as pageData; else pageNotFound">
+    <div class="contents">
+        <section
+            class="mx-auto min-[576px]:max-w-[540px] min-[768px]:max-w-[720px] min-[992px]:max-w-[960px] min-[1200px]:max-w-[1140px] min-[1400px]:max-w-[1320px] ">
+            <div class="grid grid-cols-12">
+                <div class="col-span-12 mb-5 px-6 lg:col-span-8">
+                    <h1 class="mb-2 mt-0 text-3xl font-semibold leading-tight">
+                        {{ pageData.name }}
+                    </h1>
+                    <hr class="my-7 h-0.5 border-t-0 bg-neutral-100 opacity-100 dark:opacity-50">
+                    <p class="mb-3">
+                        {{ pageData.content }}
+                    </p>
+                </div>
+            </div>
+        </section>
+    </div>
 </div>
+<ng-template #pageNotFound>Page Not Found</ng-template>
