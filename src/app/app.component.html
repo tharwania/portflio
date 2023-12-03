@@ -24,26 +24,23 @@
     <div class="!visible hidden flex-grow basis-[100%] items-center lg:!flex lg:basis-auto"
          id="navbarSupportedContent1" data-te-collapse-item>
       <!-- Logo -->
-      <!-- <a class="mb-4 mr-2 mt-3 flex items-center text-neutral-900 hover:text-neutral-900 focus:text-neutral-900 dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 lg:mb-0 lg:mt-0"
+      <a class="mb-4 mr-2 mt-3 flex items-center text-neutral-900 hover:text-neutral-900 focus:text-neutral-900 dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 lg:mb-0 lg:mt-0"
          href="#">
-        <img src="https://tecdn.b-cdn.net/img/logo/te-transparent-noshadows.webp" style="height: 15px" alt=""
+        <img src="favicon.ico" style="height: 15px" alt=""
              loading="lazy" />
-      </a> -->
+      </a>
       <!-- Left navigation links -->
-      <!-- <ul class="list-style-none mr-auto flex flex-col pl-0 lg:flex-row" data-te-navbar-nav-ref>
-        <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
+
+      <ul class="list-style-none mr-auto flex flex-col pl-0 lg:flex-row" data-te-navbar-nav-ref>
+        <li *ngIf="" class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
           <a class="text-neutral-500 hover:text-neutral-700 focus:text-neutral-700 disabled:text-black/30 dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-zinc-400"
-             href="#" data-te-nav-link-ref>Dashboard</a>
+             href="#" data-te-nav-link-ref>Write</a>
         </li>
-        <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
-          <a class="text-neutral-500 hover:text-neutral-700 focus:text-neutral-700 disabled:text-black/30 dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400"
-             href="#" data-te-nav-link-ref>Team</a>
-        </li>
-        <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
+        <!-- <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
           <a class="text-neutral-500 hover:text-neutral-700 focus:text-neutral-700 disabled:text-black/30 dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400"
              href="#" data-te-nav-link-ref>Projects</a>
-        </li>
-      </ul> -->
+        </li> -->
+      </ul>
     </div>
 
     <!-- Right elements -->
@@ -62,29 +59,8 @@
     </div>
   </div>
 </nav>
+<router-outlet></router-outlet>
 
-<!-- Jumbotron -->
-<div class="relative flex items-center justify-center py-16 bg-gray-50 sm:py-24 lg:py-32 mb-16">
-  <div class="absolute inset-0 bg-gradient-to-r from-teal-500 to-cyan-600 dark:from-neutral-700 dark:to-neutral-800"
-       aria-hidden="true"></div>
-  <div class="relative px-4 sm:px-6 lg:px-8">
-    <div class="mx-auto text-lg text-center max-w-4xl">
-      <h1 class="text-4xl font-extrabold tracking-tight text-white sm:text-4xl lg:text-5xl">
-        <span class="block mb-6">I am Avinash Tharwani</span>
-        <span class="block text-3xl">This is my portfolio</span>
-      </h1>
-      <p class="mt-6 text-xl text-teal-50 max-w-3xl mb-6">
-        I share my opinions, thoughts and ideas on this website. I also share my work and projects that I have done in the past.
-      </p>
-
-      <!-- <a role="button" href="https://tailwind-elements.com/learn/te-foundations/basics/introduction/" target="_blank"
-         class="inline-block rounded bg-neutral-50 px-7 pb-2.5 pt-3 text-sm font-medium uppercase leading-normal text-neutral-800 shadow-[0_4px_9px_-4px_#cbcbcb] transition duration-150 ease-in-out hover:bg-neutral-100 hover:shadow-[0_8px_9px_-4px_rgba(203,203,203,0.3),0_4px_18px_0_rgba(203,203,203,0.2)] focus:bg-neutral-100 focus:shadow-[0_8px_9px_-4px_rgba(203,203,203,0.3),0_4px_18px_0_rgba(203,203,203,0.2)] focus:outline-none focus:ring-0 active:bg-neutral-200 active:shadow-[0_8px_9px_-4px_rgba(203,203,203,0.3),0_4px_18px_0_rgba(203,203,203,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(251,251,251,0.3)] dark:hover:shadow-[0_8px_9px_-4px_rgba(251,251,251,0.1),0_4px_18px_0_rgba(251,251,251,0.05)] dark:focus:shadow-[0_8px_9px_-4px_rgba(251,251,251,0.1),0_4px_18px_0_rgba(251,251,251,0.05)] dark:active:shadow-[0_8px_9px_-4px_rgba(251,251,251,0.1),0_4px_18px_0_rgba(251,251,251,0.05)]">
-        More about me
-      </a> -->
-
-    </div>
-  </div>
-</div>
 <!-- Blog listing space -->
 <!-- <div class="container mx-auto mb-16">
   <div class="grid grid-cols-1 md:grid-cols-3 gap-12">

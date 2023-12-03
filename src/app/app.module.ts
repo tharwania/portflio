@@ -9,11 +9,13 @@ import { environment } from 'src/environments/environment';
 import { PageComponent } from './src/app/components/page/page.component';
 import { getAuth, provideAuth } from '@angular/fire/auth';
 import { FIREBASE_OPTIONS } from '@angular/fire/compat';
+import { HomeComponent } from './src/app/components/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PageComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
