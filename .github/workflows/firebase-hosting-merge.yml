@@ -10,8 +10,11 @@ jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/setup-node@v2
       - uses: actions/checkout@v2
+      - name: create env file
+        run: |
+          # create secrets/enviroment.prod.ts file using secrets
+          '${{ secrets.FIREBASE_DETAILS }}' > src/environments/environment.prod.ts
       - run: npm ci && npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
