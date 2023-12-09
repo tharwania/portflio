@@ -1,8 +1,8 @@
 - Add new page
-- Hide environment variables
+- ~~Hide environment variables~~
 - ~~Authentication~~
-- Add page with Auth only
-- Read Page without any auth
+- ~~Add page with Auth only~~
+- ~~Read Page without any auth~~
 - Add page with H and p tags
 - Render page with H and p
 - Edit page on the fly
