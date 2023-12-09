@@ -14,6 +14,7 @@ jobs:
       - name: create env file
         run: |
           # create secrets/enviroment.prod.ts file using secrets
+          mkdir src/environments
           touch src/environments/environment.prod.ts
           touch src/environments/environment.ts
           echo '${{ secrets.FIREBASE_DETAILS }}' > src/environments/environment.prod.ts
