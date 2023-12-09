@@ -14,7 +14,7 @@ jobs:
       - name: create env file
         run: |
           # create secrets/enviroment.prod.ts file using secrets
-          '${{ secrets.FIREBASE_DETAILS }}' > src/environments/environment.prod.ts
+          echo '${{ secrets.FIREBASE_DETAILS }}' > src/environments/environment.prod.ts
       - run: npm ci && npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
