@@ -11,3 +11,5 @@
 - Publish first home page
 - Add favicon
 - Add published and unpublished page
+- upgrade angular
+
