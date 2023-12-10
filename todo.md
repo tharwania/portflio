@@ -1,15 +1,15 @@
-- Add new page
+- ~~Add new page~~
 - ~~Hide environment variables~~
 - ~~Authentication~~
 - ~~Add page with Auth only~~
 - ~~Read Page without any auth~~
-- Add page with H and p tags
-- Render page with H and p
-- Edit page on the fly
-- name as title
+- ~~Add page with H and p tags~~
+- ~~Render page with H and p~~
+- ~~Edit page on the fly~~
+- ~~name as title~~
+- ~~Add favicon~~
 - SEO settings meta data
 - Publish first home page
-- Add favicon
 - Add published and unpublished page
 - upgrade angular
 
