@@ -10,6 +10,8 @@ import { PageComponent } from './src/app/components/page/page.component';
 import { getAuth, provideAuth } from '@angular/fire/auth';
 import { FIREBASE_OPTIONS } from '@angular/fire/compat';
 import { HomeComponent } from './src/app/components/home/home.component';
+import { FormsModule } from '@angular/forms';
+
 
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
@@ -22,6 +24,7 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     CKEditorModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),

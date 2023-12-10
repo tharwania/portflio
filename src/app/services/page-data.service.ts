@@ -1,7 +1,6 @@
-import { DocTypeToken } from '@angular/compiler/src/ml_parser/tokens';
 import { Injectable } from '@angular/core';
 import { Firestore, collectionData, collection, DocumentData, doc, docData, CollectionReference } from '@angular/fire/firestore';
-import { addDoc, DocumentReference, setDoc } from 'firebase/firestore';
+import { addDoc, setDoc, updateDoc } from 'firebase/firestore';
 import { map, Observable } from 'rxjs';
 
 @Injectable({
@@ -24,9 +23,21 @@ export class PageDataService {
     );
   }
 
-  public updateDoc(page: Page) {
-    const ref = doc(this.firestore, `pages/${page.url}`);
-    setDoc(ref, page)
+  public async updatePage(page: Page) {
+    const ref = doc(this.firestore, 'pages', page.url);
+    await updateDoc(ref, {
+      name: page.name,
+      content: page.content,
+      url: page.url
+    });
+  }
+
+  public async addPage(page: Page) {
+    await setDoc(doc(this.firestore, "pages", page.url), {
+      name: page.name,
+      content: page.content,
+      url: page.url
+    });
   }
 }
 
