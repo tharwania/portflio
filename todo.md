@@ -8,8 +8,12 @@
 - ~~Edit page on the fly~~
 - ~~name as title~~
 - ~~Add favicon~~
+- Allow Deaft and Published Pages
+- First 10 Blogs on Home page
 - SEO settings meta data
 - Publish first home page
 - Add published and unpublished page
 - upgrade angular
+- Check if title already exists before creating/updating
+- On title Change Add old title and url as ref link
 
