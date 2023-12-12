@@ -16,4 +16,5 @@
 - upgrade angular
 - Check if title already exists before creating/updating
 - On title Change Add old title and url as ref link
+- Ability to add code in editor
 
