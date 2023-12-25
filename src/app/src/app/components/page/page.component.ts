@@ -10,6 +10,17 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
   styleUrls: ['./page.component.scss']
 })
 export class PageComponent implements OnInit, OnDestroy {
+  public editorConfig = {
+    toolbar: ['bold', 'italic'],
+    codeBlock: {
+      languages: [
+        { language: 'javascript', label: 'JavaScript' },
+      ]
+    },
+    alignment: {
+      options: ['left', 'right']
+    }
+  };
   subscriptions: Subscription[] = [];
   isNewPage = false;
   pageObservable: Observable<Page> | null = null;
