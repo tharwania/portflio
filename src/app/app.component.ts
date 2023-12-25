@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { DocumentData } from 'firebase/firestore';
+import { DocumentData } from '@angular/fire/firestore';
 import { Observable, Subscription, map } from 'rxjs';
 import { PageDataService } from './services/page-data.service';
 import {
@@ -19,19 +19,19 @@ import firebase from 'firebase/compat/app';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit, OnDestroy {
-  readonly userDisposable: Subscription|undefined;
+  readonly userDisposable: Subscription | undefined;
   user: firebase.User | null | undefined;
   showLoginButton = false;
   showLogoutButton = false;
   title = 'portfolio';
   pages: Observable<DocumentData[]>;
-  constructor(private service: PageDataService, 
+  constructor(private service: PageDataService,
     public readonly authService: AuthService) {
     this.pages = this.service.getPages();
-    initTE({ Collapse, Dropdown, Ripple  });
+    initTE({ Collapse, Dropdown, Ripple });
     this.userDisposable = this.authService.AuthState().pipe(
       trace('auth'),
-    ).subscribe((user) => {
+    ).subscribe((user: any) => {
       const isLoggedIn = !!user;
       this.user = user;
       this.showLoginButton = !isLoggedIn;
@@ -39,7 +39,7 @@ export class AppComponent implements OnInit, OnDestroy {
     });
   }
   ngOnInit(): void {
-    
+
   }
 
   ngOnDestroy(): void {
