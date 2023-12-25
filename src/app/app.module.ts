@@ -14,12 +14,14 @@ import { FormsModule } from '@angular/forms';
 
 
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { AboutComponent } from './src/app/components/about/about.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PageComponent,
     HomeComponent,
+    AboutComponent,
   ],
   imports: [
     BrowserModule,

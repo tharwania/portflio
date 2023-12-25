@@ -16,7 +16,7 @@
                         <h1 *ngIf="!editMode">{{pageData.name}}</h1>
                     </h1>
                     <hr class="my-7 h-0.5 border-t-0 bg-neutral-100 opacity-100 dark:opacity-50">
-                    <ckeditor *ngIf="editMode" [editor]="Editor" [(ngModel)]="pageData.content">
+                    <ckeditor *ngIf="editMode" [config]="editorConfig" [editor]="Editor" [(ngModel)]="pageData.content">
                     </ckeditor>
                     <div *ngIf="!editMode" [innerHTML]="pageData.content" class="mb-3">
                     </div>

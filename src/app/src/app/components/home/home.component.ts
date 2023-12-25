@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PageDataService } from 'src/app/services/page-data.service';
 
 @Component({
   selector: 'app-home',
@@ -6,8 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
-  constructor() { }
+  pages: any;
+  constructor(private pageService: PageDataService) {
+    this.pageService.getPages().subscribe((pages) => {
+      this.pages = pages;
+    });
+  }
 
   ngOnInit(): void {
   }
