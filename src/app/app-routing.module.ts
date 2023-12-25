@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PageComponent } from './src/app/components/page/page.component';
-import { HomeComponent } from './src/app/components/home/home.component';
-import { AboutComponent } from './src/app/components/about/about.component';
+import { PageComponent } from './components/page/page.component';
+import { HomeComponent } from './components/home/home.component';
+import { AboutComponent } from './components/about/about.component';
 
 const routes: Routes = [
   { path: 'page/:id', component: PageComponent },
