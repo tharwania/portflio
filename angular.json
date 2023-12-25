@@ -107,5 +107,7 @@
       }
     }
   },
-  "defaultProject": "portfolio"
+  "cli": {
+    "analytics": "898bd77e-5d50-4bc4-a2cb-86f0cdde1308"
+  }
 }
