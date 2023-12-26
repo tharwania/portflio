@@ -1,12 +1,10 @@
-<!-- TW Elements is free under AGPL, with commercial license required for specific uses. See more details: https://tw-elements.com/license/ and contact us for queries at tailwind@mdbootstrap.com -->
-<div class="relative flex items-center justify-center bg-gray-50 sm:py-8 lg:py-8 mb-16">
-  <div class="absolute inset-0 bg-gradient-to-r" aria-hidden="true"></div>
-  <div class="relative px-4 sm:px-6 lg:px-8">
-    <!-- TW Elements is free under AGPL, with commercial license required for specific uses. See more details: https://tw-elements.com/license/ and contact us for queries at tailwind@mdbootstrap.com -->
-    <div *ngFor="let page of pages" class="block rounded-lg bg-white p-6 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
-      <h5 class="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
-        <a [routerLink]="['/page', page.url]">{{ page.name }}</a>
-      </h5>
-    </div>
-  </div>
+<div class="container">
+  <h1 class="title">
+    Blog
+  </h1>
+  <ul class="posts">
+    <li *ngFor="let page of pages" class="post">
+      <a [routerLink]="['/page', page.url]">{{ page.name }}</a>
+    </li>
+  </ul>
 </div>

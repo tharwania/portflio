@@ -1,26 +1,31 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
 import { Page, PageDataService } from 'src/app/services/page-data.service';
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import { Editor, Toolbar, toHTML } from 'ngx-editor';
+
 @Component({
   selector: 'app-page',
   templateUrl: './page.component.html',
-  styleUrls: ['./page.component.scss']
+  styleUrls: ['./page.component.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class PageComponent implements OnInit, OnDestroy {
-  public editorConfig = {
-    toolbar: ['bold', 'italic'],
-    codeBlock: {
-      languages: [
-        { language: 'javascript', label: 'JavaScript' },
-      ]
-    },
-    alignment: {
-      options: ['left', 'right']
-    }
-  };
+  toolbar: Toolbar = [
+    // default value
+    ['bold', 'italic'],
+    ['underline', 'strike'],
+    ['code', 'blockquote'],
+    ['ordered_list', 'bullet_list'],
+    [{ heading: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'] }],
+    ['link', 'image'],
+    ['text_color', 'background_color'],
+    ['align_left', 'align_center', 'align_right', 'align_justify'],
+    ['horizontal_rule', 'format_clear'],
+  ];
+  editor: Editor = new Editor();
+
   subscriptions: Subscription[] = [];
   isNewPage = false;
   pageObservable: Observable<Page> | null = null;
@@ -28,7 +33,6 @@ export class PageComponent implements OnInit, OnDestroy {
   data: string = '';
   isLoggedIn = false;
   editMode = false;
-  public Editor = ClassicEditor;
   constructor(private pageService: PageDataService,
     private route: ActivatedRoute,
     public readonly authService: AuthService,
@@ -64,13 +68,11 @@ export class PageComponent implements OnInit, OnDestroy {
   }
 
   async addOrUpdatePage() {
-    // this.router.navigate(['../home'], { relativeTo: this.route });
     if (!this.page) return;
     if (this.page.url === '') {
       this.page.url = this.page.name.toLowerCase().replace(/ /g, '-');
     }
     if (this.isNewPage) {
-      debugger;
       await this.pageService.addPage(this.page);
       this.router.navigateByUrl('/page/' + this.page.url);
     }
@@ -81,7 +83,6 @@ export class PageComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-
   }
 
 }
