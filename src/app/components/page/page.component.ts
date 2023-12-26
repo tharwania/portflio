@@ -4,6 +4,7 @@ import { Observable, Subscription } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
 import { Page, PageDataService } from 'src/app/services/page-data.service';
 import { Editor, Toolbar, toHTML } from 'ngx-editor';
+import { Title } from "@angular/platform-browser";
 
 @Component({
   selector: 'app-page',
@@ -36,7 +37,7 @@ export class PageComponent implements OnInit, OnDestroy {
   constructor(private pageService: PageDataService,
     private route: ActivatedRoute,
     public readonly authService: AuthService,
-    private router: Router) {
+    private router: Router, private titleService: Title) {
     let paramMapSubscription = this.route.paramMap.subscribe(paramMap => {
       let authSubscription = authService.AuthState().subscribe(user => {
         this.isLoggedIn = !!user;
@@ -57,6 +58,7 @@ export class PageComponent implements OnInit, OnDestroy {
         this.pageObservable = this.pageService.getPage(id)
         let pageSubscription = this.pageObservable.subscribe(page => {
           this.page = page;
+          this.titleService.setTitle(page.name);
         });
         this.subscriptions?.push(pageSubscription);
       }
