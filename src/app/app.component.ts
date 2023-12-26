@@ -2,12 +2,6 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { DocumentData } from '@angular/fire/firestore';
 import { Observable, Subscription, map } from 'rxjs';
 import { PageDataService } from './services/page-data.service';
-import {
-  Collapse,
-  Dropdown,
-  Ripple,
-  initTE,
-} from "tw-elements";
 import { AuthService } from './services/auth.service';
 import { trace } from '@angular/fire/compat/performance';
 import firebase from 'firebase/compat/app';
@@ -28,7 +22,6 @@ export class AppComponent implements OnInit, OnDestroy {
   constructor(private service: PageDataService,
     public readonly authService: AuthService) {
     this.pages = this.service.getPages();
-    initTE({ Collapse, Dropdown, Ripple });
     this.userDisposable = this.authService.AuthState().pipe(
       trace('auth'),
     ).subscribe((user: any) => {
