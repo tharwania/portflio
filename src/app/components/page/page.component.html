@@ -1,12 +1,13 @@
 <div class="container" *ngIf="page as pageData; else pageNotFound">
 
-    <button *ngIf="isLoggedIn && !editMode" (click)="editMode = !editMode" type="button" data-te-ripple-init data-te-ripple-color="light" class="inline-block rounded px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary transition duration-150 ease-in-out hover:bg-neutral-100 hover:text-primary-600 focus:text-primary-600 focus:outline-none focus:ring-0 active:text-primary-700">
+    <button *ngIf="isLoggedIn && !editMode" (click)="editMode = !editMode" class="btn" type="button">
         Edit
     </button>
-    <button *ngIf="editMode" (click)="addOrUpdatePage()" type="button" data-te-ripple-init data-te-ripple-color="light" class="inline-block rounded px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary transition duration-150 ease-in-out hover:bg-neutral-100 hover:text-primary-600 focus:text-primary-600 focus:outline-none focus:ring-0 active:text-primary-700">
+    <button *ngIf="editMode" (click)="addOrUpdatePage()" type="button" class="btn">
         Update
     </button>
-    <input *ngIf="editMode" [(ngModel)]="pageData.name" type="text" placeholder="Page Title">
+    <input *ngIf="editMode" [(ngModel)]="pageData.name" type="text" class="txt" placeholder="Page Title">
+    <input *ngIf="editMode" [(ngModel)]="pageData.metaDescription" type="text" class="txt" placeholder="Meta Description">
     <h1 class="title" *ngIf="!editMode">{{pageData.name}}</h1>
     <div *ngIf="editMode">
         <ngx-editor-menu [editor]="editor" [toolbar]="toolbar"> </ngx-editor-menu>

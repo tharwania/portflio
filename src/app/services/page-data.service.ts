@@ -29,7 +29,9 @@ export class PageDataService {
     await updateDoc(ref, {
       name: page.name,
       content: page.content,
-      url: page.url
+      url: page.url,
+      metaDescription: page.metaDescription,
+      dateUpdated: new Date()
     });
   }
 
@@ -37,7 +39,9 @@ export class PageDataService {
     await setDoc(doc(this.firestore, "pages", page.url), {
       name: page.name,
       content: page.content,
-      url: page.url
+      url: page.url,
+      metaDescription: page.metaDescription,
+      dateUpdated: new Date()
     });
   }
 }
@@ -46,5 +50,7 @@ export class PageDataService {
 export interface Page {
   name: string,
   url: string,
-  content: string
+  content: string,
+  metaDescription?: string,
+  dateUpdated?: Date,
 }
