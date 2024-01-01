@@ -216,12 +216,13 @@ header a+a {
     background: rgba(200, 200, 200, 0.2);
 }
 
-.posts .post date {
+.posts .post .date {
     font-family: monospace, monospace;
     font-size: 0.8rem;
     vertical-align: middle;
     padding-right: 2rem;
     color: grey;
+    margin-top: 4px;
 }
 
 .txt {

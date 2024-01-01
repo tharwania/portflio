@@ -14,14 +14,32 @@ export class PageDataService {
   }
 
   public getPages() {
-    return collectionData(this.pages);
+    return collectionData(this.pages).pipe(map((pages: any) => {
+      return pages.map((page: any) => {
+        return {
+          name: page.name,
+          url: page.url,
+          content: page.content,
+          metaDescription: page.metaDescription,
+          dateUpdated: page.dateUpdated.toDate()
+        } as Page;
+      });
+    }));
   }
 
   public getPage(pageId: string): Observable<Page> {
     const ref = doc(this.firestore, `pages/${pageId}`);
     return docData(ref).pipe(
-      map((docData: DocumentData) => docData as Page)
-    );
+      map((docData: DocumentData) => {
+        return {
+          name: docData['name'],
+          url: docData['url'],
+          content: docData['content'],
+          metaDescription: docData['metaDescription'],
+          dateUpdated: docData['dateUpdated'].toDate()
+        } as Page;
+      }
+      ));
   }
 
   public async updatePage(page: Page) {

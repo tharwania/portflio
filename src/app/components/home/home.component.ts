@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PageDataService } from 'src/app/services/page-data.service';
+import { Page, PageDataService } from 'src/app/services/page-data.service';
 import { Meta, Title } from "@angular/platform-browser";
 
 @Component({
@@ -8,11 +8,11 @@ import { Meta, Title } from "@angular/platform-browser";
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  pages: any;
+  pages: Page[] = [];
   constructor(private pageService: PageDataService,
     private titleService: Title, private metaService: Meta) {
-    this.pageService.getPages().subscribe((pages) => {
-      this.pages = pages;
+    this.pageService.getPages().subscribe((pages: any) => {
+      this.pages = pages as Page[];
     });
     this.titleService.setTitle("Avinash Tharwani's Blog Home");
     this.metaService.updateTag({ name: 'description', content: "Page links about Avi's Blog where you can read what I am learning and writing about." });

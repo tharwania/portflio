@@ -4,7 +4,10 @@
   </h1>
   <ul class="posts">
     <li *ngFor="let page of pages" class="post">
-      <a [routerLink]="['/page', page.url]">{{ page.name }}</a>
+      <a [routerLink]="['/page', page.url]">
+        <span class="date"> {{page.dateUpdated | date:'dd.MM.yyyy'}} </span>
+        <span>{{ page.name }}</span>
+      </a>
     </li>
   </ul>
 </div>
