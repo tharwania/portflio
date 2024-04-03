@@ -76,7 +76,8 @@ export class PageComponent implements OnInit, OnDestroy {
   async addOrUpdatePage() {
     if (!this.page) return;
     if (this.page.url === '') {
-      this.page.url = this.page.name.toLowerCase().replace(/ /g, '-');
+
+      this.page.url = this.page.name.toLowerCase().replace(/ /g, '-').replace(/[^a-zA-Z0-9-]/g, '');
     }
     if (this.isNewPage) {
       await this.pageService.addPage(this.page);

@@ -259,3 +259,9 @@ input[type="text"] {
     transition: all 0.2s ease-in-out;
     margin: 10px 0px;
 }
+
+.NgxEditor__MenuBar {
+    position: fixed;
+    z-index: 999;
+    top: 0;
+}

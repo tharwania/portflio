@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Firestore, collectionData, collection, DocumentData, doc, docData, CollectionReference } from '@angular/fire/firestore';
-import { addDoc, setDoc, updateDoc } from 'firebase/firestore';
+import { Firestore, collectionData, collection, DocumentData, doc, docData, CollectionReference, orderBy, query, getDocs } from '@angular/fire/firestore';
+import { Query, addDoc, limit, setDoc, updateDoc, where } from 'firebase/firestore';
 import { map, Observable } from 'rxjs';
 
 
@@ -8,13 +8,15 @@ import { map, Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class PageDataService {
-  pages: CollectionReference<DocumentData>;
+  pagesByDate: Query<DocumentData>;
+  pageRef: CollectionReference<DocumentData>
   constructor(private firestore: Firestore) {
-    this.pages = collection(this.firestore, 'pages');
+    this.pageRef = collection(this.firestore, 'pages');
+    this.pagesByDate = query(this.pageRef, orderBy("dateUpdated", "desc"));
   }
 
   public getPages() {
-    return collectionData(this.pages).pipe(map((pages: any) => {
+    return collectionData(this.pagesByDate).pipe(map((pages: any) => {
       return pages.map((page: any) => {
         return {
           name: page.name,
@@ -28,15 +30,16 @@ export class PageDataService {
   }
 
   public getPage(pageId: string): Observable<Page> {
-    const ref = doc(this.firestore, `pages/${pageId}`);
-    return docData(ref).pipe(
+    const queryByUrl = query(this.pageRef, where("url", "==", pageId), limit(1));
+    return collectionData(queryByUrl).pipe(
       map((docData: DocumentData) => {
+        const firstDoc = docData[0];
         return {
-          name: docData['name'],
-          url: docData['url'],
-          content: docData['content'],
-          metaDescription: docData['metaDescription'],
-          dateUpdated: docData['dateUpdated'].toDate()
+          name: firstDoc['name'],
+          url: firstDoc['url'],
+          content: firstDoc['content'],
+          metaDescription: firstDoc['metaDescription'],
+          dateUpdated: firstDoc['dateUpdated'].toDate()
         } as Page;
       }
       ));

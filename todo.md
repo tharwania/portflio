@@ -11,8 +11,10 @@
 - ~~Publish first home page~~
 - ~~Aupgrade angular~~
 - ~~Ability to add code in editor~~
-- Writing Design Changes
-- Allow Deaft and Published Pages
+- ~~Writing Design Changes~~
+- Add Share to Fb, Twitter, linkedin button
+- Meta Description for share
+- Allow Draft and Published Pages
 - First 10 Blogs on Home page
 - SEO settings meta data
 - Add published and unpublished page
