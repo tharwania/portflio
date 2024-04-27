@@ -3,7 +3,7 @@
 # Portfolio
 
 - Simple Developer Portflio
-- Deployed with Firebase https://avinash-tharwani.web.app/
+- Deployed with Firebase https://debuging-avi.com
 - Built With Angular
 
 ## Motivation
